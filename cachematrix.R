@@ -13,15 +13,9 @@
 # [2,]    1 -1.0
 # >
 
-getInvertibleMatrix <- function(){
-	matrix(c(2,2,3,2),2,2)
-}
+## makeCacheMatrix() creates a function that use cacheSolve() t6o get the invertible matrix
 
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
+## Creates a special "matrix" object that can cache its inverse
 makeCacheMatrix <- function(x = matrix()) {
         m <- NULL
         set <- function(y) {
@@ -37,8 +31,8 @@ makeCacheMatrix <- function(x = matrix()) {
 
 }
 
-## Write a short comment describing this function
-
+## Calculates the inverse of the  "matrix" object created by makeCacheMatrix() function beafore
+## If it is already cached use that cached value matrix.
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         m <- x$getinv()
@@ -51,3 +45,9 @@ cacheSolve <- function(x, ...) {
         x$setinv(m)
         m
 }
+		
+## Function added just to take a invertible matrix to test the other functions		
+getInvertibleMatrix <- function(){
+	matrix(c(2,2,3,2),2,2)
+}
+
